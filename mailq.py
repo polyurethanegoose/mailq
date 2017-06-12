@@ -151,6 +151,7 @@ class MailQReader(object):
         try:
             return datetime.datetime.strptime(dateString, "%a %b %d %H:%M:%S %Y")
         except ValueError:
+            dateString = dateString.replace('- ', '')
             return datetime.datetime.strptime(dateString, "%a %b %d %H:%M %Y")
 
 
