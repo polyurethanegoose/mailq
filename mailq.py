@@ -131,7 +131,10 @@ class MailQReader(object):
             except AttributeError:
                 fields[key] = '-'
         fields['raw'] = entryString
-        fields['arrivalTime'] = self.convertDate(fields['arrivalTime'])
+        if fields['arrivalTime'] == "-":
+            fields['arrivalTime'] = strftime("%Y-%m-%d %H:%M:%S", gmtime())
+        else:
+            fields['arrivalTime'] = self.convertDate(fields['arrivalTime'])
         mailqrecord = MailQRecord(**fields)
         return MailQRecord(**fields)
 
