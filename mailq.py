@@ -2,6 +2,7 @@ import re
 import mailq
 import sys
 import datetime
+from time import gmtime, strftime
 
 expressions = {'queueId': '^\s*([a-zA-Z0-9\*\-]+)',
                'fromAddress': '\s*<?([A-Z0-9._%+-]+@[A-Z0-9._-]+\.[A-Z]{2,4})>?',
